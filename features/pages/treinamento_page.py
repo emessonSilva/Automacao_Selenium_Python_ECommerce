@@ -2,48 +2,19 @@ from selenium.webdriver.common.by import By
 from features.pages.base_page import BasePage
 
 class TreinamentoPage(BasePage):
-    BOTAO_CLICK_ME = (By.CSS_SELECTOR, '#buttonSimple')
-    CAMPO_NOME = (By.CSS_SELECTOR, '#formNome')
-    CAMPO_SOBRENOME = (By.CSS_SELECTOR, '#formSobrenome')
-    RADIO_SEXO_MASCULINO = (By.CSS_SELECTOR, "#formSexoMasc")
-    RADIO_SEXO_FEMININO = (By.CSS_SELECTOR, "#formSexoFem")
-    BOTAO_CADASTRAR = (By.CSS_SELECTOR, "#formCadastrar")
-    TEXTO_RESULTADO = (By.CSS_SELECTOR, "#resultado span") 
+    ICONE_CARRINHO = (By.CSS_SELECTOR, '#shopping_cart_container')
+    CAMPO_USUARIO = (By.CSS_SELECTOR, '#user-name')
+    CAMPO_SENHA = (By.CSS_SELECTOR, '#password')
+    BOTAO_LOGIN = (By.CSS_SELECTOR, '#login-button') 
 
-    def recuperar_texto_resultado(self):
-        elemento = self.find_element(*self.TEXTO_RESULTADO)
-        return elemento.get_attribute("textContent") 
-    
-    def preencher_campo_nome(self, valor):
-        campo_nome = self.find_element(*self.CAMPO_NOME)
-        campo_nome.clear()  
-        campo_nome.send_keys(valor)
+    def preencher_campo_usuario(self):
+        campo_usuario = self.driver.find_element(*self.CAMPO_USUARIO)
+        campo_usuario.send_keys('standard_user')
 
-    def preencher_campo_sobrenome(self, valor):
-        campo_sobrenome = self.find_element(*self.CAMPO_SOBRENOME)
-        campo_sobrenome.clear()  
-        campo_sobrenome.send_keys(valor)
+    def preencher_campo_senha(self):
+        campo_senha = self.driver.find_element(*self.CAMPO_SENHA)
+        campo_senha.send_keys('secret_sauce')
 
-    def clicar_sexo(self, sexo):
-        if sexo == "Masculino":
-            self.find_element(*self.RADIO_SEXO_MASCULINO).click()
-        elif sexo == "Feminino":
-            self.find_element(*self.RADIO_SEXO_FEMININO).click()
-        else:
-            raise ValueError(f"Sexo '{sexo}' não reconhecido")
+    def clicar_botao_login(self):
+        self.driver.find_element(*self.BOTAO_LOGIN).click()
 
-    def clicar_botao_cadastrar(self):
-        self.find_element(*self.BOTAO_CADASTRAR).click()
-
-    def clicar_botao_click_me(self):
-        botao_click_me = self.find_element(*self.BOTAO_CLICK_ME)
-        texto_botao_antes = self.get_element_text(botao_click_me)
-        assert texto_botao_antes == "Clique Me!"
-        botao_click_me.click()
-
-    def recuperar_texto_botao_click_me(self):
-        return self.get_element_text(self.find_element(*self.BOTAO_CLICK_ME))
-
-    def recuperar_texto_alert(self):
-        texto_alert = self.get_alert_text()
-        return str(texto_alert)

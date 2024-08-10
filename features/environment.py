@@ -12,7 +12,7 @@ def before_scenario(context, scenario):
     context.wait = WebDriverWait(context.driver, 10)
 
 def after_scenario(context, scenario):
-    time.sleep(3)
+    time.sleep(6)
     print(scenario.name)
     if scenario.status == Status.failed:
         # Tirar uma screenshot se o cenário falhar
