@@ -1,8 +1,9 @@
 from behave import given, when, then
+from selenium.webdriver.support.ui import WebDriverWait
 from features.pages.treinamento_page import TreinamentoPage
 
 # Region Teste Login Válido
-@given(u'o usuário está na página de login')
+@given(u'que o usuário está na página de login')
 def step_given_o_usuario_esta_na_pagina_de_login(context):
     context.driver.get("https://www.saucedemo.com")
     context.treinamento_page = TreinamentoPage(context.driver)
@@ -18,5 +19,7 @@ def step_when_o_usuario_clica_no_botao_login(context):
 
 @then(u'o usuário deve ser redirecionado para a página principal')
 def step_then_o_usuario_deve_estar_na_pagina_principal(context):
-    ...
+   WebDriverWait(context.driver, 5).until(
+        EC.url_to_be("https://www.saucedemo.com/inventory.html")
+    ) 
 # End Region
