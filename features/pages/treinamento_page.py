@@ -15,7 +15,7 @@ class TreinamentoPage(BasePage):
     CAMPO_LAST_NAME = (By.CSS_SELECTOR, '#last-name')
     CAMPO_POSTAL_CODE = (By.CSS_SELECTOR, '#postal-code')
     BOTAO_MENU = (By.CSS_SELECTOR, '#react-burger-menu-btn')
-    BOTAO_ADD_TO_CART = (By.CSS_SELECTOR, '#shopping_cart_container')
+    BOTAO_ADD_TO_CART = (By.CSS_SELECTOR, '#add-to-cart')
     BOTAO_ADD_BOLT_SHIRT = (By.CSS_SELECTOR, '#add-to-cart-sauce-labs-bolt-t-shirt')
     BOTAO_ADD_MACACAO = (By.CSS_SELECTOR, '#add-to-cart-sauce-labs-fleece-jacket')
     BOTAO_REMOVER_BOLT_SHIRT= (By.CSS_SELECTOR, '#remove-sauce-labs-bolt-t-shirt')
