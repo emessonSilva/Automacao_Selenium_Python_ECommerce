@@ -16,10 +16,26 @@ class TreinamentoPage(BasePage):
     CAMPO_POSTAL_CODE = (By.CSS_SELECTOR, '#postal-code')
     BOTAO_MENU = (By.CSS_SELECTOR, '#react-burger-menu-btn')
     BOTAO_ADD_TO_CART = (By.CSS_SELECTOR, '#shopping_cart_container')
+    BOTAO_ADD_BOLT_SHIRT = (By.CSS_SELECTOR, '#add-to-cart-sauce-labs-bolt-t-shirt')
+    BOTAO_ADD_MACACAO = (By.CSS_SELECTOR, '#add-to-cart-sauce-labs-fleece-jacket')
+    BOTAO_REMOVER_BOLT_SHIRT= (By.CSS_SELECTOR, '#remove-sauce-labs-bolt-t-shirt')
+    BOTAO_CONTINUAR_COMPRANDO = (By.CSS_SELECTOR, '#continue-shopping')
 
     
     def clicar_botao_menu(self):
-        self.driver.find_element(*self.BOTAO_MENU).click()
+        self.driver.find_element(*self.BOTAO_ADD_BOLT_SHIRT).click()
+
+    def clicar_botao_continuar_comprando(self):
+       self.driver.find_element(*self.BOTAO_CONTINUAR_COMPRANDO).click()
+
+    def clicar_botao_adicionar_bolt_tshirt(self):
+       self.driver.find_element(*self.BOTAO_ADD_MACACAO).click()
+    
+    def clicar_botao_remover_bolt_tshirt(self):
+       self.driver.find_element(*self.BOTAO_REMOVER_BOLT_SHIRT).click()
+    
+    def clicar_botao_adicionar_macacao(self):
+       self.driver.find_element(*self.BOTAO_MENU).click()
 
     def clicar_imagem_blackpacK(self):
         self.driver.find_element(*self.IMAGEM_BLACKPACK).click()
