@@ -89,3 +89,40 @@ def step_when_clicar_botao_menu(context):
 def step_when_mostrar_informacoes(context):
     ...
 #endregion
+
+
+
+# Region Teste Gerenciamento de Carrinho
+@when(u'o usuário adicionar os produtos "Camiseta Sauce Labs Bolt" e "Macacão Sauce Labs" ao carrinho')
+def step_when_adicionar_camiseta_e_macaca_ao_carrinho(context):
+    context.treinamento_page.clicar_botao_adicionar_bolt_tshirt()
+    context.treinamento_page.clicar_botao_adicionar_macacao()
+    context.treinamento_page.clicar_botao_add_to_cart()
+
+@when(u'ao remover o produto "Camiseta Sauce Labs Bolt" do carrinho')
+def step_when_remover_camiseta_do_carrinho(context):
+    context.treinamento_page.clicar_botao_remover_bolt_tshirt()
+    
+@then(u'Então o carrinho deverá ter apenas o item "Macacão Sauce Labs" no carrinho')
+def step_when_mostrar_carrinho_com_um_item(context):
+    ...
+#endregion
+
+
+# Region Teste Navegação para a Página Principal
+@when(u'o usuário clica no item "Jaqueta de lã Sauce Labs"')
+def step_when_adicionar_camiseta_e_macaca_ao_carrinho(context):
+    context.treinamento_page.clicar_botao_adicionar_macacao()
+
+@when(u'o usuário deve estar na página de detalhes do item')
+def step_when_ver_detalhes_do_item(context):
+    context.treinamento_page.clicar_botao_add_to_cart()
+
+@when(u'o usuário clica no botão "Continuar Comprando"')
+def step_when_clicar_botao_continuar_comprando(context):
+    context.treinamento_page.clicar_botao_continuar_comprando()
+    
+@then(u'o usuário deve ser redirecionado de volta à página principal e visualizará os produtos disponíveis')
+def step_when_mostrar_página_home(context):
+    ...
+#endregion
