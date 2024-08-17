@@ -23,19 +23,19 @@ class TreinamentoPage(BasePage):
 
     
     def clicar_botao_menu(self):
-        self.driver.find_element(*self.BOTAO_ADD_BOLT_SHIRT).click()
+        self.driver.find_element(*self.BOTAO_MENU).click()
 
     def clicar_botao_continuar_comprando(self):
        self.driver.find_element(*self.BOTAO_CONTINUAR_COMPRANDO).click()
 
     def clicar_botao_adicionar_bolt_tshirt(self):
-       self.driver.find_element(*self.BOTAO_ADD_MACACAO).click()
+       self.driver.find_element(*self.BOTAO_ADD_BOLT_SHIRT).click()
     
     def clicar_botao_remover_bolt_tshirt(self):
        self.driver.find_element(*self.BOTAO_REMOVER_BOLT_SHIRT).click()
     
     def clicar_botao_adicionar_macacao(self):
-       self.driver.find_element(*self.BOTAO_MENU).click()
+       self.driver.find_element(*self.BOTAO_ADD_MACACAO).click()
 
     def clicar_imagem_blackpacK(self):
         self.driver.find_element(*self.IMAGEM_BLACKPACK).click()
