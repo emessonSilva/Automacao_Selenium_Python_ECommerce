@@ -9,6 +9,7 @@ from behave.model_core import Status
 def before_scenario(context, scenario):
     context.driver = webdriver.Chrome()
     context.driver.implicitly_wait(10)
+    context.driver.maximize_window() 
     context.wait = WebDriverWait(context.driver, 10)
 
 def after_scenario(context, scenario):
