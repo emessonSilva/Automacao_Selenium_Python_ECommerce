@@ -30,13 +30,13 @@ WebDriverWait: Cria uma instância para esperas explícitas no Selenium.
 # Hooks
 def before_scenario(context, scenario):
     context.driver = webdriver.Chrome()
-    context.driver.implicitly_wait(10)
+    context.driver.implicitly_wait(5)
     context.driver.maximize_window()
-    context.wait = WebDriverWait(context.driver, 10)
+    context.wait = WebDriverWait(context.driver, 5)
 
 """
 Função: Executada após cada cenário de teste.
-time.sleep(2): Aguarda 2 segundos (útil para finalizar qualquer interação com o navegador antes de fechar).
+time.sleep(1): Aguarda 1 segundos (útil para finalizar qualquer interação com o navegador antes de fechar).
 Relatório de Cenário:
 Abre o arquivo de relatório (REPORT_FILE) em modo de escrita.
 Registra:
@@ -45,7 +45,7 @@ Status do cenário (PASSED ou FAILED).
 Data e hora em que o cenário foi executado.
 """
 def after_scenario(context, scenario):
-    time.sleep(2)
+    time.sleep(1)
     # Registrar os resultados do cenário no relatório
     with open(REPORT_FILE, "a") as report:
         status = "PASSED" if scenario.status == Status.passed else "FAILED"
@@ -62,7 +62,6 @@ def after_scenario(context, scenario):
         os.makedirs(screenshot_dir, exist_ok=True)
         screenshot_path = os.path.join(screenshot_dir, f"{scenario.name.replace(' ', '_')}.png")
         context.driver.save_screenshot(screenshot_path)
-    context.driver.quit()
 
     # Fechar o driver
     context.driver.quit()
