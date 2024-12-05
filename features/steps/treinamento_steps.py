@@ -16,7 +16,7 @@ def step_given_o_usuario_esta_na_pagina_de_login(context):
 @when(u'o usuário insere um nome de usuário e senha válidos')
 def step_when_o_usuario_inserir_credenciais_validas(context):
     time.sleep(2)
-    context.treinamento_page.preencher_campo_usuario('standard_user')
+    context.treinamento_page.preencher_campo_usuario('standard_use')
     time.sleep(2)
     context.treinamento_page.preencher_campo_senha('secret_sauce')
     

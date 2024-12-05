@@ -1,4 +1,4 @@
-Funcionalidade: Treinamento de Automaçao
+Funcionalidade: Treinamento de Automação
 
     @TesteLoginVálido
     Cenário: Login com credenciais válidas
